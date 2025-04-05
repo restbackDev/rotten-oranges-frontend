@@ -1,0 +1,48 @@
+.signUpContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.signUpForm{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 20px;
+}
+
+.signUpForm input{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+.ctaButtons{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    gap: 20px;
+}
+
+.ctaButtons button{
+    background-color: whitesmoke;
+    padding: 10px 20px;
+    border: solid black 1px;
+    border-radius: 5px;
+    transition: 0.3 ease;
+}
+
+.ctaButtons button:hover{
+    color: white;
+    background-color: #ff9800;
+    cursor: pointer;
+}
+
+.ctaButtons button:disabled{
+    background-color: #d3d3d3;
+    cursor: not-allowed;
+}

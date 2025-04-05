@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-
+import styles from './SignUp.module.css'
 import { useNavigate } from 'react-router';
 import { signUp } from '../../services/authService';
 import { UserContext } from '../../contexts/UserContext';
@@ -40,44 +40,47 @@ const SignUpForm = () => {
   };
 
   return (
-    <main>
+    <main className={styles.signUpContainer}>
       <h1>Sign Up</h1>
       <p>{message}</p>
-      <form onSubmit={handleSubmit}>
+      <form className={styles.signUpForm} onSubmit={handleSubmit}>
         <div>
-          <label htmlFor='username'>Username:</label>
+          <label htmlFor='username'></label>
           <input
             type='text'
             id='name'
             value={username}
             name='username'
+            placeholder='Username'
             onChange={handleChange}
             required
           />
         </div>
         <div>
-          <label htmlFor='password'>Password:</label>
+          <label htmlFor='password'></label>
           <input
             type='password'
             id='password'
             value={password}
             name='password'
+            placeholder='Password'
             onChange={handleChange}
             required
           />
         </div>
         <div>
-          <label htmlFor='confirm'>Confirm Password:</label>
+          <label htmlFor='confirm'></label>
           <input
             type='password'
             id='confirm'
             value={passwordConf}
             name='passwordConf'
+            placeholder='Confirm Password'
             onChange={handleChange}
             required
           />
         </div>
-        <div>
+        <div className={styles.ctaButtons}>
           <button disabled={isFormInvalid()}>Sign Up</button>
           <button onClick={() => navigate('/')}>Cancel</button>
         </div>
