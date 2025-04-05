@@ -1,6 +1,6 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router';
-
+import styles from './SignIn.module.css'
 import { signIn } from '../../services/authService';
 import { UserContext } from '../../contexts/UserContext';
 
@@ -33,35 +33,37 @@ const SignInForm = () => {
   };
 
   return (
-    <main>
+    <main className={styles.signInContainer}>
       <h1>Sign In</h1>
-      <p>{message}</p>
-      <form autoComplete='off' onSubmit={handleSubmit}>
+      {/* <p>{message}</p> */}
+      <form className={styles.signInForm} autoComplete='off' onSubmit={handleSubmit}>
         <div>
-          <label htmlFor='username'>Username:</label>
+          <label htmlFor='username'></label>
           <input
             type='text'
             autoComplete='off'
             id='username'
             value={formData.username}
             name='username'
+            placeholder='Username'
             onChange={handleChange}
             required
           />
         </div>
         <div>
-          <label htmlFor='password'>Password:</label>
+          <label htmlFor='password'></label>
           <input
             type='password'
             autoComplete='off'
             id='password'
             value={formData.password}
             name='password'
+            placeholder='Password'
             onChange={handleChange}
             required
           />
         </div>
-        <div>
+        <div className={styles.ctaButtons}>
           <button>Sign In</button>
           <button onClick={() => navigate('/')}>Cancel</button>
         </div>
