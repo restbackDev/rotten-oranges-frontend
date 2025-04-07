@@ -18,7 +18,7 @@ const Landing = () => {
       <p className={styles.welcomeMessage}>Join the Rotten Oranges community to discover the latest movie reviews, ratings, and recommendations. Sign up now to start exploring</p>
         {isSignUp ? <SignUpForm /> : <SignInForm />}
         <p>{isSignUp ? 'Already have an account? ' : "Don't have an account yet? "}</p>
-        <button onClick={toggleForm}> {isSignUp ? 'Sign In': 'Sign Up'}</button>
+        <button className={styles.toggleButton} onClick={toggleForm}> {isSignUp ? 'Sign In': 'Sign Up'}</button>
       </div>
     </main>
   );
