@@ -8,13 +8,13 @@ const ReviewList = (props) => {
         props.review.map((review) => (
           <Link key={review._id} to={`/movies/${movie._id}`}>
             <header>
-              <h2>{hoot.title}</h2>
+              <h2>{movie.title}</h2>
               <p>
-                {`${review.user.username} posted on
-                ${new Date(hoot.createdAt).toLocaleDateString()}`} 
+                {`${user.username} posted on
+                ${new Date(review.timestamps).toLocaleDateString()}`} 
               </p>
             </header>
-            <p>{hoot.text}</p>
+            <p>{review.text}</p>
           </Link>
         ))
       }

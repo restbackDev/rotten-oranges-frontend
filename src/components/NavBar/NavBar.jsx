@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Link } from 'react-router';
-import styles from './NavBar.module.css';
+import styles from './Navbar.module.css';
 import logo from '../../assets/orange-logo.png'
 import { UserContext } from '../../contexts/UserContext';
 
@@ -29,7 +29,7 @@ const NavBar = () => {
           <li><Link to='/'>Dashboard</Link></li>
           <li><Link to='/my-reviews'>My Reviews</Link></li>
           <li><Link to='/'>My Favorites</Link></li>
-          {/* <li><Link to='/reviewForm'>TEST: Review Form</Link></li> */}
+          <li><Link to='/review-form'>TEST: Review Form</Link></li>
           <li><Link to='/' onClick={handleSignOut}>Sign Out</Link></li>
           </div>
         ) : (
@@ -43,4 +43,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-
