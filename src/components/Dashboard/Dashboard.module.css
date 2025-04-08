@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+
+.dashboardContainer {
+    width: 100%; 
+    overflow-x: auto; 
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.heading {
+  font-size: 3rem;
+  text-transform: capitalize;
+}
+
+.discover{
+    padding: 2rem 1rem;
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.moviesList, .tvShowList {
+    display: flex;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory; 
+    scrollbar-width: none; 
+  }
+
+.movieCard, .tvShowCard {
+  min-width: 160px;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  background-color: #1e1e1e;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: #fff;
+  text-align: center;
+}
+
+.movieCard:hover, .tvShowCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.6);
+}
+
+.moviePoster, .tvShowPoster {
+  width: 100%;
+    height: 300px;
+  object-fit: cover;
+  
+}
+
+.movieTitle, .tvShowTitle {
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
