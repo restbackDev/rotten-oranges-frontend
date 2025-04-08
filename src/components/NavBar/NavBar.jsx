@@ -29,6 +29,7 @@ const NavBar = () => {
           <li><Link to='/'>Dashboard</Link></li>
           <li><Link to='/my-reviews'>My Reviews</Link></li>
           <li><Link to='/'>My Favorites</Link></li>
+          {/* <li><Link to='/reviewForm'>TEST: Review Form</Link></li> */}
           <li><Link to='/' onClick={handleSignOut}>Sign Out</Link></li>
           </div>
         ) : (
