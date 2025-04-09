@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Link } from 'react-router';
-import styles from './NavBar.module.css';
+import styles from './Navbar.module.css';
 import logo from '../../assets/orange-logo.png'
 import { UserContext } from '../../contexts/UserContext';
 
