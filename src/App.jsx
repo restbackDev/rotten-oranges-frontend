@@ -6,10 +6,11 @@ import SignUpForm from './components/SignUpForm/SignUpForm';
 import SignInForm from './components/SignInForm/SignInForm';
 import Landing from './components/Landing/Landing';
 import Dashboard from './components/Dashboard/Dashboard';
-import MediaDetail from './components/MediaDetail/MediaDetail';
-
+import ReviewForm from './components/ReviewForm/reviewForm';
+import ReviewList from './components/ReviewList/ReviewList';
 import { UserContext } from './contexts/UserContext';
 import Footer from './components/Footer/Footer';
+import MediaDetail from './components/MediaDetail/MediaDetail';
 
 const App = () => {
   const { user } = useContext(UserContext);
@@ -20,7 +21,9 @@ const App = () => {
         <Route path='/' element={user ? <Dashboard /> : <Landing /> } />
         <Route path='/sign-up' element={<SignUpForm />} />
         <Route path="/sign-in" element={<SignInForm />} />
-        <Route path='/:mediaType/:id' element={<MediaDetail />} />
+        <Route path="/review-form" element={<ReviewForm />} />
+        <Route path="/review-list" element={<ReviewList />} />
+        <Route path="/media/:mediaType/:id" element={<MediaDetail />} />
       </Routes>
       <Footer />
     </>
