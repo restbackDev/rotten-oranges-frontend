@@ -7,7 +7,7 @@ import SignInForm from './components/SignInForm/SignInForm';
 import Landing from './components/Landing/Landing';
 import Dashboard from './components/Dashboard/Dashboard';
 import ReviewForm from './components/ReviewForm/reviewForm';
-
+import ReviewList from './components/ReviewList/ReviewList';
 import { UserContext } from './contexts/UserContext';
 import Footer from './components/Footer/Footer';
 
@@ -20,7 +20,8 @@ const App = () => {
         <Route path='/' element={user ? <Dashboard /> : <Landing /> } />
         <Route path='/sign-up' element={<SignUpForm />} />
         <Route path="/sign-in" element={<SignInForm />} />
-        <Route path="/reviewForm" element={<ReviewForm />} />
+        <Route path="/review-form" element={<ReviewForm />} />
+        <Route path="/review-list" element={<ReviewList />} />
       </Routes>
       <Footer />
     </>

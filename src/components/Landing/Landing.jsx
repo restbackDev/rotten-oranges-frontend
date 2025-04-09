@@ -10,7 +10,7 @@ const Landing = () => {
   return (
     <main className={styles.landingContainer}>
       <div className={styles.videoContainer}>
-        <video autoPlay loop muted className={styles.video}> <source src="src/assets/movie-theater.mp4" type='video/mp4' /></video>
+        <video autoPlay loop muted className={styles.video}> <source src="movie-theater.mp4" type='video/mp4' /></video>
       </div>
 
       <div className={styles.signUpForm}>
