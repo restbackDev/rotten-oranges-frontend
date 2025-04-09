@@ -11,6 +11,10 @@ import ReviewList from './components/ReviewList/ReviewList';
 import { UserContext } from './contexts/UserContext';
 import Footer from './components/Footer/Footer';
 
+
+// import MediaDetail from './components/MediaDetail/MediaDetail';
+import Test from './components/ReviewForm/test';
+
 const App = () => {
   const { user } = useContext(UserContext);
   return (
@@ -20,8 +24,13 @@ const App = () => {
         <Route path='/' element={user ? <Dashboard /> : <Landing /> } />
         <Route path='/sign-up' element={<SignUpForm />} />
         <Route path="/sign-in" element={<SignInForm />} />
-        <Route path="/review-form" element={<ReviewForm />} />
-        <Route path="/review-list" element={<ReviewList />} />
+        {/* <Route path="/movie/:movieId" element={<MediaDetail />} /> */}
+        <Route path="/movie/:movieId/review-form" element={<ReviewForm />} /> {/* route to a add/up review movie form */}
+        <Route path="/my-reviews" element={<ReviewList />} /> {/* route to the users list of reviews  */}
+        <Route path="*" element={<h2>Whoops! 404 Nothing to see here</h2>} /> 
+        
+        
+        <Route path="/movie/:movieId" element={<Test />} />
       </Routes>
       <Footer />
     </>

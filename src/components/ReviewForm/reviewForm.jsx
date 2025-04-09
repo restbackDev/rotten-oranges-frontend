@@ -15,6 +15,7 @@ const ReviewForm = () => {
   const handleSubmit = (evt) => {
     evt.preventDefault(); //prevent a refresh-like when clicking the submit
     console.log('reviewFormData', reviewFormData);
+    navigate('/pokemon') //TODO
     // We'll update this function shortly...
   };
 
