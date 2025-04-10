@@ -9,8 +9,9 @@ import Dashboard from './components/Dashboard/Dashboard';
 import ReviewForm from './components/ReviewForm/reviewForm';
 import ReviewList from './components/ReviewList/ReviewList';
 import { UserContext } from './contexts/UserContext';
-import Footer from './components/Footer/Footer';
 import MediaDetail from './components/MediaDetail/MediaDetail';
+import MyReviews from './components/ReviewList/MyReviews';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
   const { user } = useContext(UserContext);
@@ -23,7 +24,8 @@ const App = () => {
         <Route path="/sign-in" element={<SignInForm />} />
         <Route path="/review-form" element={<ReviewForm />} />
         <Route path="/review-list" element={<ReviewList />} />
-        <Route path="/media/:mediaType/:id" element={<MediaDetail />} />
+        <Route path="/movie/:movieId" element={<MediaDetail />} />
+        <Route path="/my-reviews" element={<MyReviews />} />
       </Routes>
       <Footer />
     </>
@@ -31,4 +33,3 @@ const App = () => {
 };
 
 export default App;
-
