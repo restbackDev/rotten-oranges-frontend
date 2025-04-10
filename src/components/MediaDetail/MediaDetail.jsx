@@ -7,7 +7,7 @@ const BASE_URL = import.meta.env.VITE_BACK_END_SERVER_URL;
 const MediaDetail = () => {
   const { movieId } = useParams();
   const [mediaDetail, setMediaDetail] = useState(null);
-  const [watchProviders, setWatchProviders] = (useState);
+  const [watchProviders, setWatchProviders] = useState(null);
   const [mediaReviews, setMediaReviews] = useState([]);
   const [mediaCast, setMediaCast] = useState([]);
   const [newReview, setNewReview] = useState("");
