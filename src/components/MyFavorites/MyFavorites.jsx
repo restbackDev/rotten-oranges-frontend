@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getUserFavorites } from '../../services/favoriteService';
-import styles from './MyFavorites.module.css';
-import { Link } from 'react-router-dom';
+// import styles from './MyFavorites.module.css';
+import { Link } from 'react-router';
 
 const MyFavorites = () => {
   const [favorites, setFavorites] = useState([]);
@@ -11,8 +11,8 @@ const MyFavorites = () => {
       try {
         const data = await getUserFavorites();
         setFavorites(data);
-      } catch (err) {
-        console.error(err);
+      } catch (error) {
+        console.error(error);
       }
     };
 

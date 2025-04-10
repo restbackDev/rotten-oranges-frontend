@@ -62,4 +62,20 @@ const removeFavorite = async (movieId) => {
     }
 };
 
-export { addFavorite, getUserFavorites, removeFavorite };
+// Get total number of favorites for a movie
+const getFavoriteCount = async (movieId) => {
+    try {
+        const res = await fetch(`${BASE_URL}/count/${movieId}`, {
+            method: 'GET'
+        });
+
+        const data = await res.json();
+        if (data.error) throw new Error(data.error);
+        return data.count;
+    } catch (error) {
+        console.error('Error fetching favorite count:', error);
+        throw error;
+    }
+};
+
+export { addFavorite, getUserFavorites, removeFavorite, getFavoriteCount };
