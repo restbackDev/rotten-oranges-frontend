@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getUserFavorites } from '../../services/favoriteService';
-// import styles from './MyFavorites.module.css';
+import styles from './MyFavorites.module.css';
 import { Link } from 'react-router';
 
 const MyFavorites = () => {
