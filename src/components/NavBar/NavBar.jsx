@@ -19,22 +19,22 @@ const NavBar = () => {
   return (
     <nav className={styles.navbar}>
       <div className={styles.logoContainer}>
-      <h1>Rotten<span>Oranges</span></h1>
-      <img src={logo} alt="Rotten Oranges Logo" style={{height: '40px'}} />
+        <h1>Rotten<span>Oranges</span></h1>
+        <img src={logo} alt="Rotten Oranges Logo" style={{ height: '40px' }} />
       </div>
-     
+
       <ul>
         {user ? (
           <div className={styles.navLinks}>
-          <li><Link to='/'>Dashboard</Link></li>
-          <li><Link to='/my-reviews'>My Reviews</Link></li>
-          <li><Link to='/'>My Favorites</Link></li>
-          <li><Link to='/review-form'>TEST: Review Form</Link></li>
-          <li><Link to='/' onClick={handleSignOut}>Sign Out</Link></li>
+            <li><Link to='/'>Dashboard</Link></li>
+            <li><Link to='/my-reviews'>My Reviews</Link></li>
+            <li><Link to='/my-favorites'>My Favorites</Link></li>
+            <li><Link to='/review-form'>TEST: Review Form</Link></li>
+            <li><Link to='/' onClick={handleSignOut}>Sign Out</Link></li>
           </div>
         ) : (
-        <div className={styles.navLinks}>
-        </div>
+          <div className={styles.navLinks}>
+          </div>
         )}
 
       </ul>
