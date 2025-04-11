@@ -31,8 +31,8 @@ const createReview = async (movieId, reviewData) => {
     }
 };
 
-const updateReview = async (movieId, reviewData) => {
-    const res = await fetch(`${BASE_URL}/${movieId}`, {
+const updateReview = async (reviewId, reviewData) => {
+    const res = await fetch(`${BASE_URL}/${reviewId}`, {
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -44,9 +44,9 @@ const updateReview = async (movieId, reviewData) => {
 };
 
 // Delete the current user's review for a specific movie
-const deleteReview = async (movieId) => {
+const deleteReview = async (reviewId) => {
     try {
-        const res = await fetch(`${BASE_URL}/${movieId}`, {
+        const res = await fetch(`${BASE_URL}/${reviewId}`, {
             method: 'DELETE',
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('token')}`
@@ -61,6 +61,19 @@ const deleteReview = async (movieId) => {
         throw error;
     }
 };
+
+// TODO DELETE LATER
+// const deleteReviewbyReviewid = async (reviewId) => {
+//     const res = await fetch(`${BASE_URL}/${reviewId}`, {
+//         method: 'DELETE',
+//         headers: {
+//             Authorization: `Bearer ${localStorage.getItem('token')}`
+//         }
+//     });
+//     return await response.json();
+//    };
+
+
 export {
     createReview, getReviewByMovieId, updateReview, deleteReview
 };

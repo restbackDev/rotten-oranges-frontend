@@ -1,6 +1,10 @@
 import styles from "./MediaDetail.module.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { deleteReview } from "../../services/reviewService";
+import { updateReview } from "../../services/reviewService";
+import { getReviewByMovieId } from "../../services/reviewService";
+
 
 const BASE_URL = import.meta.env.VITE_BACK_END_SERVER_URL;
 
@@ -12,6 +16,10 @@ const MediaDetail = () => {
   const [mediaCast, setMediaCast] = useState([]);
   const [newReview, setNewReview] = useState("");
   const [showReviewForm, setShowReviewForm] = useState(false);
+  const [editForm, setEditForm] = useState(false)
+  const [text, setText] = useState("")
+  const [editReviewForm, setEditReviewForm] = useState({ text: '' })
+
 
   useEffect(() => {
     const token = localStorage.getItem("token");
@@ -19,7 +27,6 @@ const MediaDetail = () => {
       console.warn("No auth token found.");
       return;
     }
-
     const headers = {
       Authorization: `Bearer ${token}`,
     };
@@ -66,6 +73,7 @@ const MediaDetail = () => {
     }
 
     fetch(`${BASE_URL}/movies/${movieId}/reviews`, {
+      // fetch(`${BASE_URL}/movies/${movieId}s`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -92,8 +100,30 @@ const MediaDetail = () => {
 
   if (!mediaDetail) return <p>Loading...</p>;
 
+
+  const handleDelete = async (id) => {
+    try {
+      deleteReview(id)
+      setMediaReviews((prev) => prev.filter((review) => review._id !== id));
+
+    } catch (error) {
+      console.error('Error deleting review:', error);
+    }
+  };
+
+  const handleEditReview = async (movieId, reviewData) => {
+    updateReview(movieId, reviewData)
+    // setMediaReviews = [...reviewData]
+    setMediaReviews(...mediaReviews,reviewData)
+  }
+
+  const handleChange = (e) => {
+    setText(e.target.value);
+  };
+
   return (
     <div className={styles.mediaDetailContainer}>
+
       <div
         className={styles.mediaDetailBanner}
         style={{
@@ -151,23 +181,25 @@ const MediaDetail = () => {
         <div className={styles.mediaReviewsContainer}>
           <h2>Reviews</h2>
           {showReviewForm && (
-          <div className={styles.mediaReviewForm}>
-            <h2>Add a Review</h2>
-            <form onSubmit={handleReviewSubmit}>
-              <textarea
-                value={newReview}
-                onChange={(event) => setNewReview(event.target.value)}
-                placeholder="Write your review here..."
-                required
-              />
-              <button type="submit">Submit Review</button>
-            </form>
-          </div>
-        )}
+            <div className={styles.mediaReviewForm}>
+              <h2>Add a Review</h2>
+              <form onSubmit={handleReviewSubmit}>
+                <textarea
+                  value={newReview}
+                  onChange={(event) => setNewReview(event.target.value)}
+                  placeholder={"Write your review here..."}
+                  required
+                />
+                <button type="submit">Submit Review</button>
+              </form>
+            </div>
+          )}
+
           {mediaReviews.length > 0 ? (
             <ul>
               {mediaReviews.map((review, index) => (
                 <li key={review._id || index} className={styles.reviewItem}>
+                  {review._id}
                   <h3>
                     Written by {review.username || review.userId || "Anonymous"}{" "}
                     on{" "}
@@ -176,6 +208,40 @@ const MediaDetail = () => {
                       : "Unknown date"}
                   </h3>
                   <p>{review.text || "No review text."}</p>
+                
+                  {editForm && (
+                    <div className={styles.mediaReviewForm}>
+                      <h2>Edit Review</h2>
+                      <form onSubmit={(event)=> {
+                        event.preventDefault()
+                        handleEditReview(review._id,{
+                          movieId: review.movieId,
+                          userId: review.userId,
+                          rating: review.rating,
+                          text: text
+                         })
+                        }}>
+                        <textarea
+                          name="text"
+                          type="text"
+
+                          value={text}
+                          onChange={(event) => handleChange(event)}
+                          placeholder={`editForm`}
+                          required
+                        />
+                        <button type="submit">Save Edit</button>
+
+                      </form>
+                    </div>
+                  )}
+                  <button
+                    type="button"
+                    onClick={() => setEditForm(!editForm)}
+                  >
+                    {editForm ? "Cancel" : "Edit"}
+                  </button>
+                  <button onClick={() => handleDelete(review._id)}>Delete</button>
                 </li>
               ))}
             </ul>
@@ -183,7 +249,6 @@ const MediaDetail = () => {
             <p>No reviews available.</p>
           )}
         </div>
-
         <div className={styles.mediaCast}>
           <h2>Cast</h2>
           {mediaCast.length > 0 ? (
@@ -207,6 +272,9 @@ const MediaDetail = () => {
           ) : (
             <p>No cast information available.</p>
           )}
+
+
+
         </div>
       </div>
     </div>
@@ -214,3 +282,4 @@ const MediaDetail = () => {
 };
 
 export default MediaDetail;
+

@@ -35,7 +35,6 @@ const SignInForm = () => {
   return (
     <main className={styles.signInContainer}>
       <h1>Sign In</h1>
-      {/* <p>{message}</p> */}
       <form className={styles.signInForm} autoComplete='off' onSubmit={handleSubmit}>
         <div>
           <label htmlFor='username'></label>

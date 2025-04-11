@@ -18,10 +18,6 @@ const ReviewForm = () => {
     // We'll update this function shortly...
   };
 
-  // const isFormInvalid = () => {
-  //   return !( setReviewFormData == null); //text form is "null" or empty
-  // }
-
   return (
     <main>
       <form onSubmit={handleSubmit}>

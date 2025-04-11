@@ -5,6 +5,9 @@
 }
 
 body {
+  display: flex;
   font-family: 'Lato', sans-serif;
   background-color: #ff9800;
 }
+
+

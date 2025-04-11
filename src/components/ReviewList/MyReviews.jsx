@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { deleteReview } from "../../services/reviewService";
+import '../ReviewList/MyReview.css'
 const BASE_URL = import.meta.env.VITE_BACK_END_SERVER_URL;
 
 const MyReviews = () => {
@@ -36,9 +37,9 @@ const MyReviews = () => {
   }, []);
 
   return (
-    <div>
+    <div className="reviewContainer">
       <h1>My Reviews</h1>
-
+      <br/>
       {loading ? (
         <p>Loading your reviews...</p>
       ) : myReviews.length === 0 ? (
@@ -52,6 +53,7 @@ const MyReviews = () => {
                 {new Date(review.createdAt).toLocaleDateString("en-US")}
               </h3>
               <p>{review.text}</p>
+              <button>Delete</button>
             </li>
           ))}
         </ul>

@@ -29,7 +29,6 @@ const NavBar = () => {
             <li><Link to='/'>Dashboard</Link></li>
             <li><Link to='/my-reviews'>My Reviews</Link></li>
             <li><Link to='/my-favorites'>My Favorites</Link></li>
-            <li><Link to='/review-form'>TEST: Review Form</Link></li>
             <li><Link to='/' onClick={handleSignOut}>Sign Out</Link></li>
           </div>
         ) : (
