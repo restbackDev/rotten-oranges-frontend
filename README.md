@@ -49,5 +49,7 @@ The application will be available at http://localhost:5713
 ## Planning 
 - [Trello](https://trello.com/b/OotijSIg/rottenoranges)
 
+![Rotten Oranges Dashboard Page](public/images/readme/rottenorangedashboard.png)
+
 ## Next Steps
 - **Profile Management:** Implement user profile functionality to allow users to manage their personal information 
